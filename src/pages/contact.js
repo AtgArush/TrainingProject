@@ -12,12 +12,7 @@ import LCOCourseBlock from "../components/Cart/courseCart"
 const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
-    <HerSection 
-    img = {data.fileName.childImageSharp.fluid}
-    title = "I write code on editor"
-    subtitle = "LCO"
-    HeroClass = "hero-background"
-    />
+    
     <InfoBlock heading="Welcome" givenBG="infoBG"/>
     <ImageSlider/>
     <DuelBlock heading = "Our Team" linker = "/about" imageUrl="https://images.pexels.com/photos/669996/pexels-photo-669996.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
@@ -33,35 +28,5 @@ const IndexPage = ({data}) => (
     <TeamCard />
   </Layout>
 )
-
-export const query = graphql`
-{
-  fileName: file(relativePath: { eq: "abcd.jpg" }) {
-      childImageSharp {
-        fluid {
-					...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-    mycourses:allContentfulCourses{
-      edges {
-        node {
-          title
-          price
-          category
-          description{
-            description
-          }
-          image {
-            fixed(width:200 height:120){
-              ...GatsbyContentfulFixed_tracedSVG
-            }
-          }
-        }
-      }
-    }
-}
-`
-
 
 export default IndexPage
