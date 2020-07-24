@@ -14,7 +14,7 @@ const IndexPage = ({data}) => (
     <SEO title="Home" />
     <HerSection 
     img = {data.fileName.childImageSharp.fluid}
-    title = "I write code"
+    title = "I write code on editor"
     subtitle = "LCO"
     HeroClass = "hero-background"
     />
