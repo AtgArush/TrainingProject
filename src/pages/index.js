@@ -30,6 +30,7 @@ const IndexPage = ({data}) => (
         <InfoBlock heading="About Us"/>
     </Parallax> 
     <DuelBlock linker = "/services" heading = "Services" imageUrl = "https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+    <LCOCourseBlock courses={data.mycourses} />
     <TeamCard />
   </Layout>
 )
