@@ -1,22 +1,67 @@
 import React from "react"
-import { Link } from "gatsby"
-
+import { graphql} from 'gatsby'
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
-
-const IndexPage = () => (
+import HerSection from "../components/Reusable/HeroMain"
+import { Parallax} from "react-parallax"
+import DuelBlock from "../components/Reusable/DuelInfoBlock"
+import InfoBlock from "../components/Reusable/InfoBlock"
+import ImageSlider from "../components/imageSlider7"
+import TeamCard from "../components/indexCard"
+import LCOCourseBlock from "../components/Cart/courseCart"
+const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <HerSection 
+    img = {data.fileName.childImageSharp.fluid}
+    title = "I write code"
+    subtitle = "LCO"
+    HeroClass = "hero-background"
+    />
+    <InfoBlock heading="Welcome" givenBG="infoBG"/>
+    <ImageSlider/>
+    <DuelBlock heading = "Our Team" linker = "/about" imageUrl="https://images.pexels.com/photos/669996/pexels-photo-669996.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+    <Parallax
+        blur={0}
+        bgImage={require("../images/pexels.jpeg")}
+        bgImageAlt="the dog"
+        strength={400}
+        >
+        <InfoBlock heading="About Us"/>
+    </Parallax> 
+    <DuelBlock linker = "/services" heading = "Services" imageUrl = "https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+    <TeamCard />
   </Layout>
 )
+
+export const query = graphql`
+{
+  fileName: file(relativePath: { eq: "abcd.jpg" }) {
+      childImageSharp {
+        fluid {
+					...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+    mycourses:allContentfulCourses{
+      edges {
+        node {
+          title
+          price
+          category
+          description{
+            description
+          }
+          image {
+            fixed(width:200 height:120){
+              ...GatsbyContentfulFixed_tracedSVG
+            }
+          }
+        }
+      }
+    }
+}
+`
+
 
 export default IndexPage
