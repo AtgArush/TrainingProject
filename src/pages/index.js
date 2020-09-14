@@ -14,8 +14,8 @@ const IndexPage = ({data}) => (
     <SEO title="Home" />
     <HerSection 
     img = {data.fileName.childImageSharp.fluid}
-    title = "I write code on editor"
-    subtitle = "LCO"
+    title = "Welcome To My Site"
+    subtitle = "Arush Sharma"
     HeroClass = "hero-background"
     />
     <InfoBlock heading="Welcome" givenBG="infoBG"/>
@@ -34,6 +34,7 @@ const IndexPage = ({data}) => (
     <TeamCard />
   </Layout>
 )
+
 
 export const query = graphql`
 {

@@ -16,7 +16,7 @@ const ContactPage = ({data}) => (
     <HeroSection
     img = {data.fileName.childImageSharp.fluid}
     title = "Contact Us"
-    subtitle = "learn code online"
+    subtitle = "Arush Sharma"
     heroclass = "about-background"
     ></HeroSection>
     <Myblock heading ="How Can We Help You ??" givenBG="bg-theme" />

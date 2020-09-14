@@ -17,7 +17,7 @@ const IndexPage = ({data}) => (
     <HeroSection
     img = {data.fileName.childImageSharp.fluid}
     title = "I Write Code"
-    subtitle = "learn code online"
+    subtitle = "Arush Sharma"
     heroclass = "service-background"
     ></HeroSection>
     <DuelBLockAbout heading = "Services" imageUrl = "https://images.pexels.com/photos/3760093/pexels-photo-3760093.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
